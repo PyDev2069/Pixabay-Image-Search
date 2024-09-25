@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  text-align: center;
+  padding: 20px;
+  color:rgb(1, 7, 88);
+  background-image: url("back.png");
+  font-weight: bolder;  
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+img.enlarged{
+  width:400px;
+  transition: width 0.3s ease;
+}
+img {
+  width: 100%; /* Let the image take up the available space */
+  max-width: 300px; /* Limit the maximum width for larger screens */
+  height: auto; /* Maintain aspect ratio */
+}
+#imageContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Create flexible columns */
+  gap: 15px;
+}
+#searchInput {
+  width: 100%; /* Make the search input take full width on smaller screens */
+  max-width: 400px; /* Limit the max width */
+}
+
+#searchButton {
+  width: 100%; /* Adjust the button width */
+  max-width: 150px;
+  padding: 10px;
+  font-size: 1em;
+}
+.cup{
+  height: 140px;
+  width:180px;
+  border:6px solid rgb(253, 253, 253);
+  position: absolute;
+  top:40%;
+  left:40%;
+  border-radius: 0px 0px 70px  70px;
+  background-image: url(coffee.png);
+  box-shadow: 0px 0px 0px 6px white;
+  background-repeat: repeat-x;
+  background-position: 0px 140px;
+  animation: fill 2.5s infinite;
+}
+@keyframes fill {
+  0%{
+    background-position: 0px 140px;
+  }
+  20%{
+    background-position: -450px 100px;
+  }
+  40%{
+    background-position: -900px 50px;
+  }
+  80%{
+    background-position: -1350px -40px;
+  }
+  100%{
+    background-position: 0px 140px;
+  }
+}
+.handle{
+  height:70px;
+  width:40px;
+  background-color: transparent;
+  border: 6px solid rgb(255, 255, 255);
+  position:relative;
+  left:172px;
+  top:10px;
+  border-radius: 0px 25px 80px 0px;
+}
+header {
+    margin-bottom: 30px;  
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #120f0f;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+#searchContainer {
+  color:black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh; /* Full viewport height to center vertically */
+  right:15px;
+  transition: all 0.5s ease; /* Smooth transition for position change */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* After search, align it back to its normal position */
+.search-top {
+  display :flex;
+  top: 90px;  
+  z-index: 1;
+  margin-top: 20px; /* Adds margin for spacing at the top after search */
+  transition: all 0.5s ease; /* Smooth transition for the change */
+  justify-content: flex-start;
+}
+
+/* Basic styling for the search bar and button */
+#searchInput, #searchButton {
+  padding: 10px;
+  color:rgb(0, 0, 0);
+  font-size: 17px;
+  margin: 5px;
+  font-weight: bolder;
+}
+
+
+#searchInput {
+  width: 600px; /* Adjust width to make it look nice */
+  background-color: transparent;
+  opacity:0.4;
+}
+
+#searchInput::placeholder {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  width: 2000px;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius:10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+
+#imageContainer {
+  top:100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 90px;
+}
+
+#imageContainer img {
+  width: 700px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(253, 249, 249, 0.541);
+}
+
+#imageContainer img:hover{
+  transform: scale(1.1);
+}
+.enlarged {
+  transform: scale(2); /* Enlarges the image to 200% of its size */
+  z-index: 10; /* Ensures the image appears on top of other elements */
+  position: relative; /* Allows z-index to take effect */
+}
+#paginationControls{
+  background-color: azure;
+}
+
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens */
+  #imageContainer {
+    display: grid;
+    grid-template-columns: 1fr; /* Display one image per row */
+    gap: 10px; /* Add space between images */
+  }
+
+  img {
+    width: 100%; /* Make images take full width of the screen */
+    height: auto; /* Adjust height automatically */
+  }
+
+  .image-wrapper {
+    text-align: center;
+  }
+}
+
+/* For tablets and small desktops */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #imageContainer {
+    grid-template-columns: repeat(2, 1fr); /* Two images per row */
+  }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+  #imageContainer {
+    grid-template-columns: repeat(4, 1fr); /* Four images per row */
+  }
+}
+
+
+
